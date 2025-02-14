@@ -10,18 +10,8 @@ public class LikesService {
     }
 
     public LikesDTO findbycode(Long code) {
-        LikesDTO dto = LikesDTO.toDTO(likesRepository.findByCode(code));
-        return dto;
+        return LikesDTO.toDTO(likesRepository.findByCode(code));
     }
-
-    public int toPercent(LikesDTO dto){
-        int l = dto.getLikes();
-        int dl = dto.getDislikes();
-        int sum = l + dl;
-        float percentage = (float)l/(float)sum * 100.0f;
-        return Math.round(percentage);
-    }
-
     public void save(LikesDTO dto) {
         Likes li = new Likes();
         li.setCode(dto.getCode());

@@ -33,7 +33,6 @@ public class LikesController {
         likesService.save(dto);
         // for debug, 원래는 리턴값 없습니당
         dto = likesService.findbycode(code);
-        String result = "좋아요: " + dto.getLikes().toString() + " / 싫어요: " + dto.getDislikes().toString();
-        return result;
+        return "좋아요: " + dto.getLikes().toString() + " / 싫어요: " + dto.getDislikes().toString();
     }
 }
