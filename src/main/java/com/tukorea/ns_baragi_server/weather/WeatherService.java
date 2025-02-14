@@ -22,20 +22,20 @@ public class WeatherService {
         return wdto;
     }
 
-    public void saveWeatherSurveyResult(WeatherSurveyDTO wsdto){
-        Weather w = weatherRepository.findBySerialNumberAndCode(wsdto.getSerialNumber(), wsdto.getCode());
+    public void saveWeatherSurveyResult(WeatherSurveyDTO wsdto, Long code){
+        Weather w = weatherRepository.findBySerialNumberAndCode(wsdto.getSerialNumber(), code);
         WeatherDTO dto = WeatherDTO.toDTO(w);
         switch(wsdto.getValue()){
-            case 0:
+            case 1:
                 dto.plusOne();
                 break;
-            case 1:
+            case 2:
                 dto.plusTwo();
                 break;
-            case 2:
+            case 3:
                 dto.plusThree();
                 break;
-            case 3:
+            case 4:
                 dto.plusFour();
                 break;
             default:
@@ -48,6 +48,7 @@ public class WeatherService {
     public void save(WeatherDTO dto) {
         Weather w = new Weather();
         w.setId(dto.getId());
+        w.setSerialNumber(dto.getSerialNumber());
         w.setCode(dto.getCode());
         w.setName(dto.getName());
         w.setValue1Count(dto.getValue1Count());

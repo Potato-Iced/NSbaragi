@@ -1,15 +1,17 @@
 package com.tukorea.ns_baragi_server.cloth;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Builder
-@Getter
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClothSurveyDTO {
-    public Integer serial_number;
-    public Integer value;
+@Getter
+@Setter
+public class ClothRequestBody {
+    public Long code;
+    private List<ClothSurveyDTO> surveylist;
 }

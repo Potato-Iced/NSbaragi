@@ -2,9 +2,11 @@ package com.tukorea.ns_baragi_server.address;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Getter
+@Setter
 @Table
 public class Address {
     @Id

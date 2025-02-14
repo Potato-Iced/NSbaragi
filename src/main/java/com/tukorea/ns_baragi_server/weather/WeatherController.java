@@ -16,9 +16,9 @@ public class WeatherController {
     }
 
     @PostMapping("/weather/add")
-    public void addWeather(@RequestBody List<WeatherSurveyDTO> wsdtoList) {
-        for (WeatherSurveyDTO wsdto : wsdtoList) {
-            weatherService.saveWeatherSurveyResult(wsdto);
+    public void addWeather(@RequestBody WeatherRequestBody surveylistfromrequestbody) {
+        for (WeatherSurveyDTO wsdto : surveylistfromrequestbody.getSurveylist()) {
+            weatherService.saveWeatherSurveyResult(wsdto, surveylistfromrequestbody.getCode());
         }
     }
 

@@ -1,10 +1,14 @@
 package com.tukorea.ns_baragi_server.likes;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class LikesDTO {
     private Long code;
     private Integer likes;

@@ -19,15 +19,17 @@ public class ClothService {
     public void save(ClothDTO clothDTO){
         Cloth c = new Cloth();
         c.setId(clothDTO.getId());
+        c.setSerialNumber(clothDTO.getSerialNumber());
         c.setName(clothDTO.getName());
         c.setCode(clothDTO.getCode());
+        c.setCategory(clothDTO.getCategory());
         c.setColdCount(clothDTO.getColdCount());
         c.setNormalCount(clothDTO.getNormalCount());
         c.setHotCount(clothDTO.getHotCount());
         clothRepository.save(c);
     }
-    public void saveClothSurveyResult(ClothSurveyDTO csdto){
-        Cloth c = clothRepository.findBySerialNumberAndCode(csdto.getSerial_number(), csdto.getCode());
+    public void saveClothSurveyResult(ClothSurveyDTO csdto, Long code){
+        Cloth c = clothRepository.findBySerialNumberAndCode(csdto.getSerial_number(), code);
         ClothDTO dto = ClothDTO.toDTO(c);
         switch(csdto.getValue()){
             case 0: //추움
