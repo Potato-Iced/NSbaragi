@@ -32,13 +32,13 @@ public class ClothService {
         Cloth c = clothRepository.findBySerialNumberAndCode(csdto.getSerial_number(), code);
         ClothDTO dto = ClothDTO.toDTO(c);
         switch(csdto.getValue()){
-            case 0: //추움
+            case 1: //추움
                 dto.plusCold();
                 break;
-            case 1: //좋음
+            case 2: //좋음
                 dto.plusNormal();
                 break;
-            case 2: // 더움
+            case 3: // 더움
                 dto.plusHot();
                 break;
             default:

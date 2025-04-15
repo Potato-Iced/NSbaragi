@@ -18,7 +18,7 @@ public class LikesController {
     }
 
     @GetMapping("/likes/add")
-    public String addLikes(@RequestParam(name="code") Long code, @RequestParam(name="likes") byte likes) {
+    public void addLikes(@RequestParam(name="code") Long code, @RequestParam(name="likes") byte likes) {
         LikesDTO dto = likesService.findbycode(code);
         if (likes == 1){
             dto.plusLikes();
@@ -32,7 +32,7 @@ public class LikesController {
         }
         likesService.save(dto);
         // for debug, 원래는 리턴값 없습니당
-        dto = likesService.findbycode(code);
-        return "좋아요: " + dto.getLikes().toString() + " / 싫어요: " + dto.getDislikes().toString();
+        //dto = likesService.findbycode(code);
+        //return "좋아요: " + dto.getLikes().toString() + " / 싫어요: " + dto.getDislikes().toString();
     }
 }

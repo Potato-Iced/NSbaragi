@@ -1,6 +1,6 @@
 package com.tukorea.ns_baragi_server.cloth;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
