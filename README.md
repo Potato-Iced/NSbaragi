@@ -3,8 +3,6 @@
  
 날씨바라기 백엔드 서버입니다.
 
-* [원본 Repository](https://github.com/orgs/IMS-Side/repositories)
-
 # API 명세서
 
 ## 1. 주소
